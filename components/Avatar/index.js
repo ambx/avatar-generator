@@ -7,7 +7,12 @@ export default function Avatar(){
             <SVG width="300" height="300"/>
                        
             <br />
+            <div className={styles.buttons}>
             <button className={styles.button} onClick={downloadSVG}>Download</button>
+            <button className={styles.button}>Random</button>
+            </div>
+            <br />
+            
         </div>
     )
 }

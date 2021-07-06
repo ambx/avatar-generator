@@ -4,9 +4,6 @@ import Button from '../Color-Picker/index'
 export default function Form(){
     return(
         <div className={styles.container}>
-            <button className={styles.button}> Generate Random</button>
-            <br />
-            <br />
             <table>
                 <tr>
                     <td>Background Color</td>

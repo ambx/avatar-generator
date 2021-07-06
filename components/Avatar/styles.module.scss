@@ -5,4 +5,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    @include respond-below(sm){
+        justify-content: center;
+    }
+    .buttons{
+        display: flex;
+        gap: 10px;
+    }
 }
