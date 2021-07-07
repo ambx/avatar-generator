@@ -1,23 +1,40 @@
 import styles from "./styles.module.scss";
 import ColorPicker from '../Color-Picker/index'
 import { useContext } from 'react'
-import { ColorContext } from '../../context/ColorContext'
+import { useColorContext } from '../../context/ColorContext'
 
 //to do - should change drop down options to automatically update as new svg additions integrated
 
 export default function Form(){
-    const [colors, setColors]=useContext(ColorContext);
+    const {
+        skinColor,
+        hairColor,
+        backgroundColor,
+        tshirtColor,
+        setBackgroundColor,
+        setSkinColor,
+        setHairColor,
+        setTshirtColor
+      } = useColorContext();
 
     return(
         <div className={styles.container}>
             <table>
                 <tr>
                     <td>Background Color</td>
-                    <td className={styles.input}><ColorPicker r={colors['bg'][0]} g={colors['bg'][1]} b={colors['bg'][2]} /></td>
+                    <td className={styles.input}>
+                        <ColorPicker
+                            color={backgroundColor}
+                            onChange={(color) => setBackgroundColor(color)}
+            />      </td>
                 </tr>
                 <tr>
                     <td>Skin Color</td>
-                    <td className={styles.input}><ColorPicker r={colors['skin'][0]} g={colors['skin'][1]} b={colors['skin'][2]}/></td>
+                    <td className={styles.input}>
+                    <ColorPicker 
+                        color={skinColor}
+                        onChange={(color) => setSkinColor(color)}/>
+                    </td>
                 </tr>
                 <tr >
                     <td >Hair</td>
@@ -34,7 +51,11 @@ export default function Form(){
                 </tr>
                 <tr>
                     <td>Hair Color</td>
-                    <td className={styles.input}><ColorPicker r={colors['hair'][0]} g={colors['hair'][1]} b={colors['hair'][2]}/></td>
+                    <td className={styles.input}>
+                    <ColorPicker 
+                        color={hairColor}
+                        onChange={(color) => setHairColor(color)}/>
+                    </td>
                 </tr>
                 <tr>
                     <td>Facial Hair</td>
@@ -51,7 +72,12 @@ export default function Form(){
                 </tr>
                 <tr>
                     <td>T-Shirt Color</td>
-                    <td className={styles.input}><ColorPicker r={colors['tshirt'][0]} g={colors['tshirt'][1]} b={colors['tshirt'][2]}/></td>
+                    <td className={styles.input}>
+                    <ColorPicker 
+                        color={tshirtColor}
+                        onChange={(color) => setTshirtColor(color) }
+                    />
+                    </td>
                 </tr>
                 <tr>
                     <td>Accessories</td>

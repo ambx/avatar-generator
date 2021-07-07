@@ -4,22 +4,36 @@ export const ColorContext = createContext();
 
 export const ColorProvider = props => {
 
-    const [colors, setColors]= useState(
-        //initial values-should change it to initial svg colors later
-        {
-            bg:[250,200,300],
-            skin:[100,200,200],
-            hair:[100,250,300],
-            tshirt:[100,200,100]
-        }
-)  
+    //initial color states
+    const [backgroundColor, setBackgroundColor] = useState([250, 200, 300]);
+    const [skinColor, setSkinColor] = useState([100, 200, 200]);
+    const [hairColor, setHairColor] = useState([100, 250, 300]);
+    const [tshirtColor, setTshirtColor] = useState([100, 200, 100])
 
-//container for all child components (consumers)
+    //container for all child components (consumers)
+    const value = {
+        backgroundColor,
+        setBackgroundColor,
+        skinColor,
+        setSkinColor,
+        hairColor,
+        setHairColor,
+        tshirtColor, 
+        setTshirtColor
+    };
+
     return(
-        <ColorContext.Provider value={[colors, setColors]}>
+        <ColorContext.Provider value={value}>
             {props.children}
         </ColorContext.Provider>
     );
 }
 
-
+export const useColorContext = () => {
+    //context contains the value
+  const context = useContext(ColorContext);
+  if (context === undefined) {
+    throw new Error(`useItem must be used within a ColorProvider`);
+  }
+  return context;
+};

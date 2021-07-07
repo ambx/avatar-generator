@@ -1,14 +1,25 @@
 import {useContext} from 'react';
-import {ColorContext} from '../../context/ColorContext'
+import {useColorContext} from '../../context/ColorContext'
 
 export default function RandomButton(){
 
-    const [colors, setColors]=useContext(ColorContext);
+    const {
+        skinColor,
+        hairColor,
+        backgroundColor,
+        tshirtColor,
+        setBackgroundColor,
+        setSkinColor,
+        setHairColor,
+        setTshirtColor
+      } = useColorContext();
 
     //updating color context
     function getNewColors() {
-        setColors({bg:randomRGB(), skin:randomRGB(), hair:randomRGB(), tshirt:randomRGB()});
-        console.log(colors);
+        setBackgroundColor(randomRGB());
+        setSkinColor(randomRGB());
+        setHairColor(randomRGB());
+        setTshirtColor(randomRGB());
     }
     
     return(

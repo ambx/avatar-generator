@@ -1,77 +1,65 @@
-'use strict'
+import React, { useState } from "react";
+import reactCSS from "reactcss";
+import { SketchPicker } from "react-color";
 
-import React from 'react'
-import reactCSS from 'reactcss'
-import { SketchPicker } from 'react-color'
+const ColorPicker = ({ color, onChange }) => {
 
+  const [displayColorPicker, setDisplayColorPicker] = useState(false);
 
-class SketchExample extends React.Component {
-
-  state = {
-    //displayed only when clicked on color picker button
-    displayColorPicker: false,
-    //initial display color
-    color: {
-      r: this.props.r,
-      g: this.props.g,
-      b: this.props.b,
-      a: '1',
-    },
+  const handleClick = () => {
+    setDisplayColorPicker((value) => !value);
   };
 
-  handleClick = () => {
-    this.setState({ displayColorPicker: !this.state.displayColorPicker })
+  const handleClose = () => {
+    setDisplayColorPicker(false);
   };
 
-  handleClose = () => {
-    this.setState({ displayColorPicker: false })
+  //set display color to selection from color picker
+  const handleChange = (color) => {
+    console.log({ color });
+    onChange([color.rgb.r, color.rgb.g, color.rgb.b]);
   };
 
-  //set display color to selection from color picker 
-  handleChange = (color) => {
-    this.setState({ color: color.rgb })
-  };
-
-  render() {
-    const styles = reactCSS({
-      'default': {
-        color: {
-          padding: '5px',
-          display: 'inline-block',
-          cursor: 'pointer',
-          width: '50px',
-          height: '50px',
-          borderRadius: '50px',
-          background: `rgba(${ this.state.color.r }, ${ this.state.color.g }, ${ this.state.color.b }, ${ this.state.color.a })`,
-        },
-        popover: {
-          position: 'absolute',
-          zIndex: '2',
-        },
-        cover: {
-          position: 'fixed',
-          top: '0px',
-          right: '0px',
-          bottom: '0px',
-          left: '0px',
-        },
+  const styles = reactCSS({
+    default: {
+      color: {
+        padding: "5px",
+        display: "inline-block",
+        cursor: "pointer",
+        width: "50px",
+        height: "50px",
+        borderRadius: "50px",
+        background: `rgba(${color.join(",")})`,
       },
-    });
+      popover: {
+        position: "absolute",
+        zIndex: "2",
+      },
+      cover: {
+        position: "fixed",
+        top: "0px",
+        right: "0px",
+        bottom: "0px",
+        left: "0px",
+      },
+    },
+  });
 
-    return (
-      <div>
-        
-          <div style={ styles.color } onClick={ this.handleClick } />
-        
-        { this.state.displayColorPicker ? <div style={ styles.popover }>
-          <div style={ styles.cover } onClick={ this.handleClose }/>
-          <SketchPicker color={ this.state.color } onChange={ this.handleChange } />
-        </div> : null }
+  return (
+    <div>
+      <div style={styles.color} onClick={handleClick} />
 
+      {displayColorPicker ? (
+        <div style={styles.popover}>
+          <div style={styles.cover} onClick={handleClose} />
+          <SketchPicker
+            color={{ r: color[0], g: color[1], b: color[2] }}
+            onChange={handleChange}
+          />
+        </div>
+      ) : null}
+    </div>
+  );
+};
 
-      </div>
-    )
-  }
-}
-
-export default SketchExample
+export default ColorPicker;
