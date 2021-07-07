@@ -8,7 +8,9 @@ import { SketchPicker } from 'react-color'
 class SketchExample extends React.Component {
 
   state = {
+    //displayed only when clicked on color picker button
     displayColorPicker: false,
+    //initial display color
     color: {
       r: this.props.r,
       g: this.props.g,
@@ -25,6 +27,7 @@ class SketchExample extends React.Component {
     this.setState({ displayColorPicker: false })
   };
 
+  //set display color to selection from color picker 
   handleChange = (color) => {
     this.setState({ color: color.rgb })
   };

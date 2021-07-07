@@ -3,6 +3,8 @@ import ColorPicker from '../Color-Picker/index'
 import { useContext } from 'react'
 import { ColorContext } from '../../context/ColorContext'
 
+//to do - should change drop down options to automatically update as new svg additions integrated
+
 export default function Form(){
     const [colors, setColors]=useContext(ColorContext);
 

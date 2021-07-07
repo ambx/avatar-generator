@@ -5,17 +5,14 @@ export default function RandomButton(){
 
     const [colors, setColors]=useContext(ColorContext);
 
-    function getRandomColors() {
-        const bg=randomRGB();
-        const skin=randomRGB();
-        const hair=randomRGB();
-        const tshirt=randomRGB();
-        setColors({bg:bg, skin:skin, hair:hair, tshirt:tshirt});
+    //updating color context
+    function getNewColors() {
+        setColors({bg:randomRGB(), skin:randomRGB(), hair:randomRGB(), tshirt:randomRGB()});
         console.log(colors);
     }
     
     return(
-        <button className="button" onClick={getRandomColors}>Random</button>
+        <button className="button" onClick={getNewColors}>Random</button>
         
     )
 }

@@ -5,7 +5,7 @@ export const ColorContext = createContext();
 export const ColorProvider = props => {
 
     const [colors, setColors]= useState(
-        //initial values
+        //initial values-should change it to initial svg colors later
         {
             bg:[250,200,300],
             skin:[100,200,200],
@@ -14,6 +14,7 @@ export const ColorProvider = props => {
         }
 )  
 
+//container for all child components (consumers)
     return(
         <ColorContext.Provider value={[colors, setColors]}>
             {props.children}
