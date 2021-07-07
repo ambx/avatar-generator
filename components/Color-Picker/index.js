@@ -4,13 +4,15 @@ import React from 'react'
 import reactCSS from 'reactcss'
 import { SketchPicker } from 'react-color'
 
+
 class SketchExample extends React.Component {
+
   state = {
     displayColorPicker: false,
     color: {
-      r: '241',
-      g: '112',
-      b: '19',
+      r: this.props.r,
+      g: this.props.g,
+      b: this.props.b,
       a: '1',
     },
   };
@@ -28,7 +30,6 @@ class SketchExample extends React.Component {
   };
 
   render() {
-
     const styles = reactCSS({
       'default': {
         color: {
