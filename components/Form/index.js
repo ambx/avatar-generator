@@ -21,13 +21,11 @@ export default function Form(){
         setFacialHair,
         accessories,
         setAccessories,
-        hairOptions,
-        setHairOptions
+        hairList,
+        facialHairList,
+        accessoriesList
       } = useFeaturesContext();
 
-      const Hair=hairOptions;
-      const FacialHair=['Mustache','Beard' ,'None'];
-      const Accessories=['Glasses','Mask','Hat'];
 
     return(
         <div className={styles.container}>
@@ -53,9 +51,9 @@ export default function Form(){
                     <td  className={styles.input}>
                     <select name="hair" id="hair" value={hair} onChange={(value) => setHair(value)} >
                     <optgroup>
-                        {Hair.map((Hair) => (
-                            <option value={Hair}>
-                            {Hair}
+                        {hairList.map((hair) => (
+                            <option value={hair}>
+                            {hair}
                             </option>
                         ))}
                     </optgroup>
@@ -75,8 +73,8 @@ export default function Form(){
                     <td className={styles.input}>
                     <select name="facial-hair" id="facial-hair" value={facialHair} onChange={(value) => setFacialHair(value)}>
                     <optgroup>
-                        {FacialHair.map((FacialHair) => (
-                            <option value={FacialHair}>{FacialHair}</option>
+                        {facialHairList.map((facialHair) => (
+                            <option value={facialHair}>{facialHair}</option>
                         ))}
                     </optgroup>
                     </select>
@@ -96,8 +94,8 @@ export default function Form(){
                     <td className={styles.input}>
                     <select name="accessories" id="accessories" value={accessories} onChange={(value) => setAccessories(value)}>
                     <optgroup>
-                        {Accessories.map((Accessories) => (
-                            <option value={Accessories}>{Accessories}</option>
+                        {accessoriesList.map((accessories) => (
+                            <option value={accessories}>{accessories}</option>
                         ))}
                     </optgroup>
                     </select>

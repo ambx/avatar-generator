@@ -18,13 +18,10 @@ export default function RandomButton(){
         setFacialHair,
         accessories,
         setAccessories,
-        hairOptions,
-        sethairOptions
+        hairList,
+        facialHairList,
+        accessoriesList
       } = useFeaturesContext();
-
-      const Hair=hairOptions;
-      const FacialHair=['Mustache','Beard' ,'None'];
-      const Accessories=['Glasses','Mask','Hat'];
 
 
     //updating context
@@ -33,9 +30,9 @@ export default function RandomButton(){
         setSkinColor(randomRGB());
         setHairColor(randomRGB());
         setTshirtColor(randomRGB());
-        setFacialHair(randomOption(FacialHair));
-        setAccessories(randomOption(Accessories));
-        setHair(randomOption(Hair));
+        setFacialHair(randomOption(facialHairList));
+        setAccessories(randomOption(accessoriesList));
+        setHair(randomOption(hairList));
 
     }
     
