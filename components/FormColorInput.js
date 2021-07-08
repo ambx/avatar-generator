@@ -3,7 +3,7 @@ import { useFeaturesContext } from '../context/FeaturesContext'
 import ColorPicker from './Color-Picker/index'
 
 
-export default function formColorInput(props){
+export default function FormColorInput(props){
 
     const {
         backgroundColor,
@@ -34,13 +34,13 @@ export default function formColorInput(props){
                     onChange={(value) => 
                         {
                             if (props.title==="Background Color")
-                                return setBackgroundColor(value)
+                                setBackgroundColor(value)
                             else if(props.title==="Skin Color")
-                                return setSkinColor(value)
+                                setSkinColor(value)
                             else if(props.title==="Hair Color")
-                                return setHairColor(value)
+                                setHairColor(value)
                             else if(props.title==="T-Shirt Color")
-                                return setTshirtColor(value)
+                                setTshirtColor(value)
                         }
                     }  />
             </td>

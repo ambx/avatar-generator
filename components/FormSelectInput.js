@@ -29,8 +29,9 @@ export default function FormSelectInput(props){
             <td >{props.title}</td>
             <td  className={styles.input}>
                 <select 
-                    name={props.title} 
-                    value={props.value} 
+                    key={props.title} 
+                    name={props.title}
+                    value={props.value}
                     onChange={(value) => 
                         {
                             if (props.title==="Hair")
@@ -42,9 +43,9 @@ export default function FormSelectInput(props){
                         }
                     } >
                         <optgroup>
-                            {props.list.map((hair) => (
-                                <option value={hair}>
-                                    {hair}
+                            {props.list.map((item) => (
+                                <option value={item} key={item}>
+                                    {item}
                                 </option>
                             ))}
                         </optgroup>
