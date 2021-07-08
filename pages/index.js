@@ -14,8 +14,7 @@ export default function Home(props) {
     <FeaturesProvider 
       hairList={props.hairList} 
       facialHairList={props.facialHairList} 
-      accessoriesList={props.accessoriesList}
-    >
+      accessoriesList={props.accessoriesList}>
       <div className={styles.container}>
         <h1 className={styles.title}>Avatar Generator</h1><br /><br />
         <div className={styles.main}>
@@ -27,6 +26,7 @@ export default function Home(props) {
     
   )
 }
+
 
 export async function getStaticProps(){
   const hairList=getHairOptions()

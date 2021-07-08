@@ -1,11 +1,11 @@
 import styles from "./styles.module.scss";
-import ColorPicker from '../Color-Picker/index'
-import { useContext } from 'react'
 import { useFeaturesContext } from '../../context/FeaturesContext'
+import SelectInput from '../FormSelectInput.js'
+import ColorInput from '../FormColorInput.js'
 
-//to do - should change drop down options to automatically update as new svg additions integrated
 
 export default function Form(){
+
     const {
         backgroundColor,
         setBackgroundColor,
@@ -30,83 +30,14 @@ export default function Form(){
     return(
         <div className={styles.container}>
             <table>
-                <tr>
-                    <td>Background Color</td>
-                    <td className={styles.input}>
-                        <ColorPicker
-                            color={backgroundColor}
-                            onChange={(color) => setBackgroundColor(color)}
-            />      </td>
-                </tr>
-                <tr>
-                    <td>Skin Color</td>
-                    <td className={styles.input}>
-                    <ColorPicker 
-                        color={skinColor}
-                        onChange={(color) => setSkinColor(color)}/>
-                    </td>
-                </tr>
-                <tr >
-                    <td >Hair</td>
-                    <td  className={styles.input}>
-                    <select name="hair" id="hair" value={hair} onChange={(value) => setHair(value)} >
-                    <optgroup>
-                        {hairList.map((hair) => (
-                            <option value={hair}>
-                            {hair}
-                            </option>
-                        ))}
-                    </optgroup>
-                    </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Hair Color</td>
-                    <td className={styles.input}>
-                    <ColorPicker 
-                        color={hairColor}
-                        onChange={(color) => setHairColor(color)}/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Facial Hair</td>
-                    <td className={styles.input}>
-                    <select name="facial-hair" id="facial-hair" value={facialHair} onChange={(value) => setFacialHair(value)}>
-                    <optgroup>
-                        {facialHairList.map((facialHair) => (
-                            <option value={facialHair}>{facialHair}</option>
-                        ))}
-                    </optgroup>
-                    </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>T-Shirt Color</td>
-                    <td className={styles.input}>
-                    <ColorPicker 
-                        color={tshirtColor}
-                        onChange={(color) => setTshirtColor(color) }
-                    />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Accessories</td>
-                    <td className={styles.input}>
-                    <select name="accessories" id="accessories" value={accessories} onChange={(value) => setAccessories(value)}>
-                    <optgroup>
-                        {accessoriesList.map((accessories) => (
-                            <option value={accessories}>{accessories}</option>
-                        ))}
-                    </optgroup>
-                    </select>
-                    </td>
-                </tr>
-                
+                <ColorInput title="Background Color" color={backgroundColor}  />
+                <ColorInput title="Skin Color" color={skinColor} />
+                <SelectInput title="Hair" value={hair} list={hairList} />
+                <ColorInput title="Hair Color" color={hairColor} />
+                <SelectInput title="Facial Hair" value={facialHair} list={facialHairList} />
+                <ColorInput title="T-Shirt Color" color={tshirtColor} />
+                <SelectInput title="Accessories" value={accessories} list={accessoriesList} /> 
             </table>
         </div>
     )
-}
-
-function trial(){
-    document.getElementById("hair").value = "Bob";
 }

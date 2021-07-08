@@ -1,4 +1,4 @@
-import {useFeaturesContext} from '../../context/FeaturesContext'
+import {useFeaturesContext} from '../context/FeaturesContext'
 
 
 export default function RandomButton(){
@@ -49,11 +49,11 @@ function randomRGB(){
     return [r,g,b]
  }
 
- function randomOption(items){
+function randomOption(items){
     return items[Math.floor(Math.random()*items.length)];
  }
 
- function randomSkinColor(){
+function randomSkinColor(){
     const brown=[233,75,22];
     return brown.map((brown) => (Math.random() * 5 >> 0)*brown/10);
  }

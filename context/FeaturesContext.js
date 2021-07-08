@@ -13,9 +13,9 @@ export const FeaturesProvider = props => {
     const [skinColor, setSkinColor] = useState([100, 200, 200]);
     const [hairColor, setHairColor] = useState([100, 250, 300]);
     const [tshirtColor, setTshirtColor] = useState([100, 200, 100]);
-    const [hair, setHair] = useState(hairList[Math.floor(Math.random()*hairList.length)]);
-    const [facialHair, setFacialHair] = useState('Mustache');
-    const [accessories, setAccessories] = useState('Hat');
+    const [hair, setHair] = useState(randomOption(hairList));
+    const [facialHair, setFacialHair] = useState(randomOption(facialHairList));
+    const [accessories, setAccessories] = useState(randomOption(accessoriesList));
 
     //container for all child components (consumers)
     const value = {
@@ -53,3 +53,8 @@ export const useFeaturesContext = () => {
   }
   return context;
 };
+
+
+function randomOption(items){
+    return items[Math.floor(Math.random()*items.length)];
+ }
