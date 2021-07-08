@@ -14,7 +14,11 @@ export default function Avatar(){
         tshirtColor, 
         setTshirtColor,
         hair,
-        setHair
+        setHair,
+        facialHair,
+        setFacialHair,
+        accessories,
+        setAccessories,
       } = useFeaturesContext();
 
     return(

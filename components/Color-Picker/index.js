@@ -28,6 +28,7 @@ const ColorPicker = ({ color, onChange }) => {
         cursor: "pointer",
         width: "50px",
         height: "50px",
+        border: `3px solid rgba(${color.map((color) => (color-25)).join(",")})`,
         borderRadius: "50px",
         background: `rgba(${color.join(",")})`,
       },

@@ -20,10 +20,12 @@ export default function Form(){
         facialHair,
         setFacialHair,
         accessories,
-        setAccessories
+        setAccessories,
+        hairOptions,
+        setHairOptions
       } = useFeaturesContext();
 
-      const Hair=['Bob','Short','Long'];
+      const Hair=hairOptions;
       const FacialHair=['Mustache','Beard' ,'None'];
       const Accessories=['Glasses','Mask','Hat'];
 

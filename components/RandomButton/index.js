@@ -1,5 +1,5 @@
-import {useContext} from 'react';
 import {useFeaturesContext} from '../../context/FeaturesContext'
+
 
 export default function RandomButton(){
 
@@ -17,10 +17,12 @@ export default function RandomButton(){
         facialHair,
         setFacialHair,
         accessories,
-        setAccessories
+        setAccessories,
+        hairOptions,
+        sethairOptions
       } = useFeaturesContext();
 
-      const Hair=['Bob','Short','Long'];
+      const Hair=hairOptions;
       const FacialHair=['Mustache','Beard' ,'None'];
       const Accessories=['Glasses','Mask','Hat'];
 
@@ -31,9 +33,10 @@ export default function RandomButton(){
         setSkinColor(randomRGB());
         setHairColor(randomRGB());
         setTshirtColor(randomRGB());
-        setHair(randomOption(Hair));
         setFacialHair(randomOption(FacialHair));
         setAccessories(randomOption(Accessories));
+        setHair(randomOption(Hair));
+
     }
     
     return(
@@ -51,4 +54,9 @@ function randomRGB(){
 
  function randomOption(items){
     return items[Math.floor(Math.random()*items.length)];
+ }
+
+ function randomSkinColor(){
+    const brown=[233,75,22];
+    return brown.map((brown) => (Math.random() * 5 >> 0)*brown/10);
  }
