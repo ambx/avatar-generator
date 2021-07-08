@@ -13,6 +13,7 @@ export default function Home() {
       <div className={styles.main}>
         <Avatar />
         <Form />
+        
       </div>
       
     </div>

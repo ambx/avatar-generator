@@ -1,19 +1,21 @@
 import styles from "./styles.module.scss";
 import SVG from '../SVG/base'
 import RandomButton from '../RandomButton'
-import { useColorContext } from '../../context/ColorContext'
+import { useFeaturesContext } from '../../context/FeaturesContext'
 
 export default function Avatar(){
     const {
-        skinColor,
-        hairColor,
         backgroundColor,
-        tshirtColor,
         setBackgroundColor,
+        skinColor,
         setSkinColor,
+        hairColor,
         setHairColor,
-        setTshirtColor
-      } = useColorContext();
+        tshirtColor, 
+        setTshirtColor,
+        hair,
+        setHair
+      } = useFeaturesContext();
 
     return(
         <div className={styles.container}>

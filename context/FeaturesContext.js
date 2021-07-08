@@ -1,14 +1,17 @@
 import { useState, useContext, createContext } from 'react';
 
-export const ColorContext = createContext();
+export const FeaturesContext = createContext();
 
-export const ColorProvider = props => {
+export const FeaturesProvider = props => {
 
     //initial color states
     const [backgroundColor, setBackgroundColor] = useState([250, 200, 300]);
     const [skinColor, setSkinColor] = useState([100, 200, 200]);
     const [hairColor, setHairColor] = useState([100, 250, 300]);
-    const [tshirtColor, setTshirtColor] = useState([100, 200, 100])
+    const [tshirtColor, setTshirtColor] = useState([100, 200, 100]);
+    const [hair, setHair] = useState('Bob');
+    const [facialHair, setFacialHair] = useState('Mustache');
+    const [accessories, setAccessories] = useState('Hat');
 
     //container for all child components (consumers)
     const value = {
@@ -19,19 +22,25 @@ export const ColorProvider = props => {
         hairColor,
         setHairColor,
         tshirtColor, 
-        setTshirtColor
+        setTshirtColor,
+        hair,
+        setHair,
+        facialHair,
+        setFacialHair,
+        accessories,
+        setAccessories
     };
 
     return(
-        <ColorContext.Provider value={value}>
+        <FeaturesContext.Provider value={value}>
             {props.children}
-        </ColorContext.Provider>
+        </FeaturesContext.Provider>
     );
 }
 
-export const useColorContext = () => {
+export const useFeaturesContext = () => {
     //context contains the value
-  const context = useContext(ColorContext);
+  const context = useContext(FeaturesContext);
   if (context === undefined) {
     throw new Error(`useItem must be used within a ColorProvider`);
   }

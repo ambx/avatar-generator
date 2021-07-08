@@ -1,11 +1,11 @@
 import '../styles/globals.scss'
-import { ColorProvider } from '../context/ColorContext'
+import { FeaturesProvider } from '../context/FeaturesContext'
 
 export default function MyApp({ Component, pageProps }) {
   return (
-      <ColorProvider>
+      <FeaturesProvider>
         <Component {...pageProps} />
-      </ColorProvider>
+      </FeaturesProvider>
     
   )
 }

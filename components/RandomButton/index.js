@@ -1,29 +1,43 @@
 import {useContext} from 'react';
-import {useColorContext} from '../../context/ColorContext'
+import {useFeaturesContext} from '../../context/FeaturesContext'
 
 export default function RandomButton(){
 
     const {
-        skinColor,
-        hairColor,
         backgroundColor,
-        tshirtColor,
         setBackgroundColor,
+        skinColor,
         setSkinColor,
+        hairColor,
         setHairColor,
-        setTshirtColor
-      } = useColorContext();
+        tshirtColor, 
+        setTshirtColor,
+        hair,
+        setHair,
+        facialHair,
+        setFacialHair,
+        accessories,
+        setAccessories
+      } = useFeaturesContext();
 
-    //updating color context
-    function getNewColors() {
+      const Hair=['Bob','Short','Long'];
+      const FacialHair=['Mustache','Beard' ,'None'];
+      const Accessories=['Glasses','Mask','Hat'];
+
+
+    //updating context
+    function getNewValues() {
         setBackgroundColor(randomRGB());
         setSkinColor(randomRGB());
         setHairColor(randomRGB());
         setTshirtColor(randomRGB());
+        setHair(randomOption(Hair));
+        setFacialHair(randomOption(FacialHair));
+        setAccessories(randomOption(Accessories));
     }
     
     return(
-        <button className="button" onClick={getNewColors}>Random</button>
+        <button className="button" onClick={getNewValues}>Random</button>
         
     )
 }
@@ -33,4 +47,8 @@ function randomRGB(){
     var g = Math.random() * 256 >> 0;
     var b = Math.random() * 256 >> 0;
     return [r,g,b]
+ }
+
+ function randomOption(items){
+    return items[Math.floor(Math.random()*items.length)];
  }

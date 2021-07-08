@@ -1,21 +1,31 @@
 import styles from "./styles.module.scss";
 import ColorPicker from '../Color-Picker/index'
 import { useContext } from 'react'
-import { useColorContext } from '../../context/ColorContext'
+import { useFeaturesContext } from '../../context/FeaturesContext'
 
 //to do - should change drop down options to automatically update as new svg additions integrated
 
 export default function Form(){
     const {
-        skinColor,
-        hairColor,
         backgroundColor,
-        tshirtColor,
         setBackgroundColor,
+        skinColor,
         setSkinColor,
+        hairColor,
         setHairColor,
-        setTshirtColor
-      } = useColorContext();
+        tshirtColor, 
+        setTshirtColor,
+        hair,
+        setHair,
+        facialHair,
+        setFacialHair,
+        accessories,
+        setAccessories
+      } = useFeaturesContext();
+
+      const Hair=['Bob','Short','Long'];
+      const FacialHair=['Mustache','Beard' ,'None'];
+      const Accessories=['Glasses','Mask','Hat'];
 
     return(
         <div className={styles.container}>
@@ -39,12 +49,13 @@ export default function Form(){
                 <tr >
                     <td >Hair</td>
                     <td  className={styles.input}>
-                    <select name="hair" id="hair">
+                    <select name="hair" id="hair" value={hair} onChange={(value) => setHair(value)} >
                     <optgroup>
-                        <option value="" disabled selected>Select your option</option>
-                        <option value="bob">Bob</option>
-                        <option value="long">Long</option>
-                        <option value="short">Short</option>
+                        {Hair.map((Hair) => (
+                            <option value={Hair}>
+                            {Hair}
+                            </option>
+                        ))}
                     </optgroup>
                     </select>
                     </td>
@@ -60,12 +71,11 @@ export default function Form(){
                 <tr>
                     <td>Facial Hair</td>
                     <td className={styles.input}>
-                    <select name="facial-hair" id="facial-hair">
+                    <select name="facial-hair" id="facial-hair" value={facialHair} onChange={(value) => setFacialHair(value)}>
                     <optgroup>
-                        <option value="" disabled selected>Select your option</option>
-                        <option value="bob">Beard</option>
-                        <option value="long">Mustache</option>
-                        <option value="short">None</option>
+                        {FacialHair.map((FacialHair) => (
+                            <option value={FacialHair}>{FacialHair}</option>
+                        ))}
                     </optgroup>
                     </select>
                     </td>
@@ -82,12 +92,11 @@ export default function Form(){
                 <tr>
                     <td>Accessories</td>
                     <td className={styles.input}>
-                    <select name="accessories" id="accessories">
+                    <select name="accessories" id="accessories" value={accessories} onChange={(value) => setAccessories(value)}>
                     <optgroup>
-                        <option value="" disabled selected>Select your option</option>
-                        <option value="bob">Glasses</option>
-                        <option value="long">Hat</option>
-                        <option value="short">Mask</option>
+                        {Accessories.map((Accessories) => (
+                            <option value={Accessories}>{Accessories}</option>
+                        ))}
                     </optgroup>
                     </select>
                     </td>
@@ -98,3 +107,6 @@ export default function Form(){
     )
 }
 
+function trial(){
+    document.getElementById("hair").value = "Bob";
+}
