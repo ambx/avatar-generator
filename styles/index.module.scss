@@ -2,18 +2,18 @@
 @import './mixins';
 
 .container {
-    position: relative;
     margin: 0 8vw;
-    padding: 0 0.5rem;
     @include respond-below(sm){
-        margin: 0 2vw;
+      margin: 0 2vw;
+    }  
+    hr{
+      width: 100%;
+      margin-bottom: 20px;
     }
   .main{
+    padding: 0 0.5rem;
     display: flex;
     justify-content: space-around;
-    flex-direction: row;
-    @include respond-below(sm){
-      flex-direction: column;
-    }
+    flex-direction: column;
   }
 }

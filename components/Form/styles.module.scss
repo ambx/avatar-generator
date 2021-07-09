@@ -3,14 +3,17 @@
 
 
 .container{
+    margin: 0 auto;
     text-align: center;
     font-size: 1.2em;
     line-height: 50px;
     table{
+        margin: 0 auto;
         justify-content: flex-end;
         width: 500px;
-        @include respond-below(sm){
-            width: 100vw;
+        @include respond-below(md){
+            width: 100%;
+            max-width: 500px;
         }
         tr{
             text-align: left;
@@ -18,17 +21,14 @@
                 text-align: right;
                 select{
                     height: 35px;
-                    width: 210px;
+                    width: 150px;
                     font-size: 1em;
                     font-family: 'Poppins', sans-serif;
                     border-radius: 5px;
                     color: white;
                     background-color: black;
                 }
-                optgroup{
-                        font-family: 'Poppins', sans-serif;
-                        font-size: 1em;
-                    }
+                
                 
             }
         }

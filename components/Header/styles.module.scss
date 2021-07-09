@@ -1,0 +1,15 @@
+@import "../../styles/mixins";
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    h1{
+      font-size: 2em;
+      @include  respond-below(sm){
+        max-width: 250px;
+        font-size: 1.5em;
+      }
+    }
+  }
