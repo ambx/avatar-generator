@@ -27,16 +27,32 @@ export default function Form() {
   return (
     <div className={styles.container}>
       <table>
-        <ColorInput title="Background Color" color={backgroundColor} />
-        <ColorInput title="Skin Color" color={skinColor} />
-        <SelectInput title="Hair" value={hair} list={hairList} />
-        <ColorInput title="Hair Color" color={hairColor} />
+        <ColorInput 
+          title="Background Color" 
+          color={backgroundColor}
+        />
+        <ColorInput 
+          title="Skin Color" 
+          color={skinColor}
+        />
+        <SelectInput 
+          title="Hair" 
+          value={hair} 
+          list={hairList}
+        />
+        <ColorInput 
+          title="Hair Color" 
+          color={hairColor} 
+        />
         <SelectInput
           title="Facial Hair"
           value={facialHair}
           list={facialHairList}
         />
-        <ColorInput title="T-Shirt Color" color={tshirtColor} />
+        <ColorInput 
+          title="T-Shirt Color" 
+          color={tshirtColor} 
+        />
         <SelectInput
           title="Accessories"
           value={accessories}

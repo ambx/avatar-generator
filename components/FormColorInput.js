@@ -1,6 +1,6 @@
 import styles from "./Form/styles.module.scss";
 import { useFeaturesContext } from "../context/FeaturesContext";
-import ColorPicker from "./Color-Picker/index";
+import ColorPicker from "./ColorPicker";
 
 export default function FormColorInput(props) {
   const {
